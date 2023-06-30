@@ -2,6 +2,8 @@ package com.matheuslt.booklibrary.security.authentication;
 
 import java.io.Serializable;
 
+import com.matheuslt.booklibrary.models.enums.Role;
+
 public class RegisterRequest implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
@@ -9,15 +11,17 @@ public class RegisterRequest implements Serializable {
 	private String lastName;
 	private String email;
 	private String password;
+	private Role role;
 	
 	public RegisterRequest() {
 	}
 
-	public RegisterRequest(String firstName, String lastName, String email, String password) {
+	public RegisterRequest(String firstName, String lastName, String email, String password, Role role) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
 		this.password = password;
+		this.role = role;
 	}
 
 	public String getFirstName() {
@@ -50,5 +54,13 @@ public class RegisterRequest implements Serializable {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public Role getRole() {
+		return role;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
 	}
 }
